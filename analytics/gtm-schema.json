@@ -1,0 +1,71 @@
+{
+  "workspace": "InvestForChange Podcast",
+  "events": [
+    {
+      "event": "episode_published",
+      "description": "Fired when a new episode goes live",
+      "parameters": {
+        "episode_number": "string — e.g. EP01",
+        "episode_title": "string",
+        "platform": "string — spotify | apple | web",
+        "timestamp": "ISO8601"
+      }
+    },
+    {
+      "event": "episode_play",
+      "description": "Fired when a user starts playing an episode on the web player",
+      "parameters": {
+        "episode_number": "string",
+        "listen_duration_sec": "number",
+        "completion_pct": "number — 0 to 100",
+        "platform": "string"
+      }
+    },
+    {
+      "event": "whitepaper_download",
+      "description": "Fired when a user downloads the policy whitepaper",
+      "parameters": {
+        "source_episode": "string",
+        "utm_campaign": "string"
+      }
+    },
+    {
+      "event": "social_share_click",
+      "description": "Fired on share button click",
+      "parameters": {
+        "episode_number": "string",
+        "platform": "string — linkedin | x | whatsapp | facebook"
+      }
+    },
+    {
+      "event": "newsletter_signup",
+      "description": "Fired on newsletter form submission",
+      "parameters": {
+        "source": "string — episode page | footer | popup"
+      }
+    }
+  ],
+  "tags": [
+    "GA4 - Episode Published",
+    "GA4 - Episode Play / Completion",
+    "GA4 - Whitepaper Download",
+    "GA4 - Social Share Click",
+    "GA4 - Newsletter Signup",
+    "LinkedIn Insight Tag"
+  ],
+  "triggers": [
+    "Custom event: episode_published",
+    "Custom event: episode_play",
+    "Click trigger: .btn-download",
+    "Scroll depth: 75% on episode pages",
+    "Form submission: #newsletter-form"
+  ],
+  "variables": [
+    { "name": "episode_number", "type": "Data Layer Variable" },
+    { "name": "listen_duration_sec", "type": "Data Layer Variable" },
+    { "name": "completion_pct", "type": "Data Layer Variable" },
+    { "name": "utm_campaign", "type": "URL Variable" },
+    { "name": "utm_medium", "type": "URL Variable" },
+    { "name": "utm_source", "type": "URL Variable" }
+  ]
+}
